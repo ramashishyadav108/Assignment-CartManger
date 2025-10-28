@@ -101,7 +101,25 @@ Start frontend development server:
 npm run dev
 ```
 
-## 🎯 Usage
+## �️ Building for Production
+
+Build the entire project for deployment:
+```bash
+npm run build
+```
+
+This will create optimized production builds:
+- Frontend build in `frontend/dist/`
+- Backend ready for production
+
+Start production server:
+```bash
+npm run prod
+```
+
+For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)
+
+## �🎯 Usage
 
 1. **Browse Products** - View all products on the home page
 2. **Search & Filter** - Use search bar and category filters
