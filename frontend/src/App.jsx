@@ -1,10 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CartProvider } from './context/CartContext';
+import { WishlistProvider } from './context/WishlistContext';
+import { ToastProvider } from './context/ToastContext';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import ProductsPage from './pages/ProductsPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import AddProductPage from './pages/AddProductPage';
+import WishlistPage from './pages/WishlistPage';
 import './App.css';
 
 /**
@@ -14,19 +18,25 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <CartProvider>
-        <div className="app">
-          <Navbar />
-          <main className="main-content">
-            <Routes>
-              <Route path="/" element={<ProductsPage />} />
-              <Route path="/add-product" element={<AddProductPage />} />
-              <Route path="/cart" element={<CartPage />} />
-              <Route path="/checkout" element={<CheckoutPage />} />
-            </Routes>
-          </main>
-        </div>
-      </CartProvider>
+      <ToastProvider>
+        <CartProvider>
+          <WishlistProvider>
+            <div className="app">
+              <Navbar />
+              <main className="main-content">
+                <Routes>
+                  <Route path="/" element={<ProductsPage />} />
+                  <Route path="/add-product" element={<AddProductPage />} />
+                  <Route path="/cart" element={<CartPage />} />
+                  <Route path="/checkout" element={<CheckoutPage />} />
+                  <Route path="/wishlist" element={<WishlistPage />} />
+                </Routes>
+              </main>
+              <Footer />
+            </div>
+          </WishlistProvider>
+        </CartProvider>
+      </ToastProvider>
     </Router>
   );
 }

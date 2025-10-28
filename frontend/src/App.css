@@ -1,15 +1,19 @@
 /* ============================================
-   APP STYLES
+   APP STYLES - ZOMATO THEME
    Global application styles
    ============================================ */
 
 .app {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%);
+  background: #FFFFFF;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-content {
+  flex: 1;
   min-height: calc(100vh - 80px);
+  background: #FFFFFF;
 }
 
 /* Reset default margins for consistency */
@@ -19,11 +23,12 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Okra', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #F8F8F8;
 }
 
 /* Utility classes */
@@ -46,4 +51,3 @@ body {
 .mb-2 {
   margin-bottom: 1rem;
 }
-

@@ -3,10 +3,9 @@ import { useCart } from '../context/CartContext';
 import CartItem from '../components/CartItem';
 import Loader from '../components/Loader';
 import '../styles/layout.css';
-import '../styles/enhanced-ui.css';
 
 /**
- * Cart Page
+ * Cart Page - Zomato Style
  * Displays cart items and allows users to proceed to checkout
  */
 const CartPage = () => {
@@ -43,8 +42,8 @@ const CartPage = () => {
   return (
     <div className="page-container">
       <div className="page-header">
-        <h1 className="gradient-text-primary">Shopping Cart</h1>
-        <p className="gradient-text-secondary">
+        <h1>Shopping Cart</h1>
+        <p>
           {isEmpty
             ? 'Your cart is empty'
             : `${getCartItemCount()} item(s) in your cart`}
@@ -52,11 +51,11 @@ const CartPage = () => {
       </div>
 
       {isEmpty ? (
-        <div className="empty-cart glassmorphism shadow-colorful-lg">
+        <div className="empty-cart">
           <div className="empty-cart-icon">🛒</div>
-          <h2 className="gradient-text-primary">Your cart is empty</h2>
+          <h2>Your cart is empty</h2>
           <p>Add some products to get started!</p>
-          <button onClick={() => navigate('/')} className="btn btn-primary neon-btn neon-btn-primary">
+          <button onClick={() => navigate('/')} className="btn btn-primary">
             Browse Products
           </button>
         </div>
@@ -64,10 +63,10 @@ const CartPage = () => {
         <div className="cart-content">
           {/* Cart Items */}
           <div className="cart-items-section">
-            <div className="cart-items-header glassmorphism">
-              <h2 className="gradient-text-primary">Items in Cart</h2>
-              <button onClick={handleClearCart} className="btn btn-secondary neon-btn neon-btn-danger">
-                Clear Cart
+            <div className="cart-items-header">
+              <h2>Items in Cart</h2>
+              <button onClick={handleClearCart} className="btn-clear-cart">
+                CLEAR CART
               </button>
             </div>
 
@@ -79,17 +78,17 @@ const CartPage = () => {
           </div>
 
           {/* Cart Summary */}
-          <div className="cart-summary glassmorphism shadow-colorful-lg animated-border-wrapper">
-            <h2 className="gradient-text-accent">Order Summary</h2>
+          <div className="cart-summary">
+            <h2>Order Summary</h2>
 
             <div className="summary-row">
               <span>Subtotal:</span>
-              <span className="gradient-text-primary">₹{getCartTotal().toFixed(2)}</span>
+              <span>₹{getCartTotal().toFixed(2)}</span>
             </div>
 
             <div className="summary-row">
               <span>Shipping:</span>
-              <span className="gradient-text-success">FREE</span>
+              <span className="free-shipping">FREE</span>
             </div>
 
             <div className="summary-row">
@@ -99,23 +98,23 @@ const CartPage = () => {
 
             <hr className="summary-divider" />
 
-            <div className="summary-row summary-total">
-              <span className="gradient-text-accent">Total:</span>
-              <span className="gradient-text-accent" style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>₹{getCartTotal().toFixed(2)}</span>
+            <div className="summary-total">
+              <span>Total:</span>
+              <span>₹{getCartTotal().toFixed(2)}</span>
             </div>
 
             <button
               onClick={handleCheckout}
-              className="btn btn-primary btn-block neon-btn neon-btn-primary"
+              className="btn btn-primary btn-block"
             >
-              Proceed to Checkout
+              PROCEED TO CHECKOUT
             </button>
 
             <button
               onClick={() => navigate('/')}
-              className="btn btn-secondary btn-block neon-btn neon-btn-ghost"
+              className="btn btn-secondary btn-block"
             >
-              Continue Shopping
+              CONTINUE SHOPPING
             </button>
           </div>
         </div>

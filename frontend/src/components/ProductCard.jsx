@@ -1,17 +1,24 @@
 import { useState } from 'react';
 import { useCart } from '../context/CartContext';
+import { useWishlist } from '../context/WishlistContext';
+import { useToast } from '../context/ToastContext';
+import StarRating from './StarRating';
+import ProductQuickView from './ProductQuickView';
 import '../styles/components.css';
-import '../styles/enhanced-ui.css';
 
 /**
- * Product Card Component
- * Displays individual product with add to cart functionality
+ * Product Card Component - Enhanced Zomato Style
+ * Displays individual product with wishlist, quick view, and ratings
  */
 const ProductCard = ({ product }) => {
   const { addToCart } = useCart();
+  const { toggleWishlist, isInWishlist } = useWishlist();
+  const { showToast } = useToast();
   const [quantity, setQuantity] = useState(1);
   const [isAdding, setIsAdding] = useState(false);
-  const [message, setMessage] = useState('');
+  const [showQuickView, setShowQuickView] = useState(false);
+
+  const inWishlist = isInWishlist(product.productId);
 
   /**
    * Handle add to cart
@@ -19,44 +26,76 @@ const ProductCard = ({ product }) => {
   const handleAddToCart = async () => {
     try {
       setIsAdding(true);
-      setMessage('');
       await addToCart(product.productId, quantity);
-      setMessage('✓ Added to cart!');
+      showToast('Added to cart!', 'success');
       setQuantity(1);
-      
-      // Clear success message after 2 seconds
-      setTimeout(() => setMessage(''), 2000);
     } catch (error) {
-      setMessage(`✗ ${error.message}`);
+      showToast(error.message, 'error');
     } finally {
       setIsAdding(false);
     }
   };
 
+  /**
+   * Handle wishlist toggle
+   */
+  const handleWishlistToggle = (e) => {
+    e.stopPropagation();
+    const added = toggleWishlist(product);
+    showToast(
+      added ? 'Added to wishlist!' : 'Removed from wishlist',
+      added ? 'success' : 'info'
+    );
+  };
+
   return (
-    <div className="product-card card-3d-hover glassmorphism shadow-colorful-lg">
-      <div className="product-image-container">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="product-image"
-          loading="lazy"
-        />
-        <div className="animated-border"></div>
-      </div>
+    <>
+      <div className="product-card">
+        {/* Wishlist Button */}
+        <button
+          className={`wishlist-btn ${inWishlist ? 'active' : ''}`}
+          onClick={handleWishlistToggle}
+          title={inWishlist ? 'Remove from wishlist' : 'Add to wishlist'}
+        >
+          {inWishlist ? '❤️' : '🤍'}
+        </button>
+
+        {/* Quick View Button */}
+        <button
+          className="quick-view-btn"
+          onClick={() => setShowQuickView(true)}
+          title="Quick View"
+        >
+          👁️
+        </button>
+
+        <div className="product-image-container" onClick={() => setShowQuickView(true)}>
+          <img
+            src={product.image}
+            alt={product.name}
+            className="product-image"
+            loading="lazy"
+          />
+        </div>
 
       <div className="product-info">
-        <h3 className="product-name gradient-text-primary">{product.name}</h3>
-        <p className="product-category badge badge-primary">{product.category}</p>
+        <h3 className="product-name">{product.name}</h3>
+        <p className="product-category">{product.category}</p>
+        <StarRating 
+          rating={product.rating || 4.5} 
+          reviews={product.reviews || Math.floor(Math.random() * 200) + 20}
+          size="small"
+          showCount={false}
+        />
         <p className="product-description">{product.description}</p>
 
         <div className="product-footer">
-          <span className="product-price gradient-text-accent">₹{product.price.toFixed(2)}</span>
+          <span className="product-price">₹{product.price.toFixed(2)}</span>
           <div className="product-stock">
             {product.stock > 0 ? (
-              <span className="in-stock badge badge-success glow-success">In Stock: {product.stock}</span>
+              <span className="in-stock">In Stock: {product.stock}</span>
             ) : (
-              <span className="out-of-stock badge badge-danger">Out of Stock</span>
+              <span className="out-of-stock">Out of Stock</span>
             )}
           </div>
         </div>
@@ -65,7 +104,7 @@ const ProductCard = ({ product }) => {
           <div className="quantity-selector">
             <button
               onClick={() => setQuantity(Math.max(1, quantity - 1))}
-              className="quantity-btn btn-secondary"
+              className="quantity-btn"
               disabled={isAdding}
             >
               -
@@ -81,7 +120,7 @@ const ProductCard = ({ product }) => {
             />
             <button
               onClick={() => setQuantity(Math.min(product.stock, quantity + 1))}
-              className="quantity-btn btn-secondary"
+              className="quantity-btn"
               disabled={isAdding}
             >
               +
@@ -90,20 +129,23 @@ const ProductCard = ({ product }) => {
 
           <button
             onClick={handleAddToCart}
-            className="add-to-cart-btn neon-btn neon-btn-primary"
+            className="add-to-cart-btn"
             disabled={isAdding || product.stock === 0}
           >
-            {isAdding ? 'Adding...' : 'Add to Cart'}
+            {isAdding ? 'Adding...' : 'ADD TO CART'}
           </button>
         </div>
-
-        {message && (
-          <p className={`product-message ${message.includes('✓') ? 'success gradient-text-success' : 'error'}`}>
-            {message}
-          </p>
-        )}
       </div>
     </div>
+
+    {/* Quick View Modal */}
+    {showQuickView && (
+      <ProductQuickView
+        product={product}
+        onClose={() => setShowQuickView(false)}
+      />
+    )}
+    </>
   );
 };
 

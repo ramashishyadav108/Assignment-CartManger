@@ -1,39 +1,47 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useWishlist } from '../context/WishlistContext';
 import '../styles/components.css';
-import '../styles/enhanced-ui.css';
 
 /**
- * Navbar Component
- * Navigation bar with links and cart badge
+ * Navbar Component - Enhanced Zomato Style
+ * Navigation bar with cart and wishlist counters
  */
 const Navbar = () => {
   const { getCartItemCount } = useCart();
+  const { getWishlistCount } = useWishlist();
   const cartItemCount = getCartItemCount();
+  const wishlistCount = getWishlistCount();
 
   return (
-    <nav className="navbar gradient-bg-animated">
+    <nav className="navbar">
       <div className="navbar-container">
-        <Link to="/" className="navbar-logo" style={{ color: 'white', fontSize: '1.75rem', fontWeight: '800', textShadow: '2px 2px 4px rgba(0,0,0,0.3)', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{ fontSize: '2rem', filter: 'brightness(0)', opacity: '0.8' }}>🛒</span> Mock E-Com
+        <Link to="/" className="navbar-logo">
+          🛒 ShopMart
         </Link>
 
         <ul className="navbar-menu">
           <li>
-            <Link to="/" className="navbar-link" style={{ color: 'white', fontSize: '1.05rem', fontWeight: '600' }}>
+            <Link to="/" className="navbar-link">
+              <span style={{ marginRight: '6px' }}>🛍️</span>
               Products
             </Link>
           </li>
           <li>
-            <Link to="/add-product" className="navbar-link" style={{ color: 'white', fontSize: '1.05rem', fontWeight: '600' }}>
-              + Add Product
+            <Link to="/wishlist" className="navbar-link wishlist-link">
+              <span style={{ marginRight: '6px' }}>❤️</span>
+              Wishlist
+              {wishlistCount > 0 && (
+                <span className="wishlist-badge">{wishlistCount}</span>
+              )}
             </Link>
           </li>
           <li>
-            <Link to="/cart" className="navbar-link cart-link" style={{ color: 'white', fontSize: '1.05rem', fontWeight: '600' }}>
+            <Link to="/cart" className="navbar-link cart-link">
+              <span style={{ marginRight: '6px' }}>🛒️</span>
               Cart
               {cartItemCount > 0 && (
-                <span className="cart-badge badge badge-danger glow-danger">{cartItemCount}</span>
+                <span className="cart-badge">{cartItemCount}</span>
               )}
             </Link>
           </li>

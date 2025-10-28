@@ -1,382 +1,289 @@
-# Mock E-Com Cart
+# 🛒 ShopMart - E-Commerce Cart Manager
 
-A full-stack MERN (MongoDB, Express, React, Node.js) shopping cart application for a coding assignment.
+A modern, full-stack MERN e-commerce application with a beautiful Zomato-inspired UI design. Built with React, Node.js, Express, and MongoDB.
 
-## 📋 Project Overview
+![React](https://img.shields.io/badge/React-18.2.0-blue)
+![Node.js](https://img.shields.io/badge/Node.js-18+-green)
+![MongoDB](https://img.shields.io/badge/MongoDB-Atlas-success)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-This is a simple e-commerce shopping cart application that allows users to:
-- Browse products with search and category filters
-- Add/remove products to/from cart
-- Update product quantities in cart
-- View cart totals
-- Complete a mock checkout (no real payment processing)
+## ✨ Features
 
-## 🛠️ Tech Stack
+### 🛍️ Shopping Experience
+- **Product Browsing** - Grid view with search and category filters
+- **Smart Cart Management** - Add, update, remove items with real-time updates
+- **Wishlist System** - Save favorite products for later
+- **Quick View Modal** - View product details without navigation
+- **Star Ratings** - 5-star rating system with review counts
+- **Stock Management** - Real-time stock availability display
+
+### 🎨 User Interface
+- **Zomato-Inspired Design** - Modern red theme with smooth animations
+- **Toast Notifications** - Beautiful feedback for user actions
+- **Responsive Layout** - Mobile-first design, works on all devices
+- **Loading States** - Smooth loading animations
+- **Empty States** - Beautiful placeholders for empty cart/wishlist
+
+### 🔧 Technical Features
+- **RESTful API** - Clean backend architecture
+- **Context API** - Global state management (Cart, Wishlist, Toast)
+- **LocalStorage** - Persistent wishlist across sessions
+- **Error Handling** - Comprehensive error management
+- **Faker.js** - Random product data generation
+
+## 🚀 Tech Stack
+
+### Frontend
+- **React 18** - UI library
+- **Vite** - Fast build tool
+- **React Router** - Client-side routing
+- **Axios** - HTTP client
+- **Context API** - State management
+- **Custom CSS** - Zomato theme styling
 
 ### Backend
 - **Node.js** - Runtime environment
 - **Express.js** - Web framework
-- **MongoDB** - Database
+- **MongoDB Atlas** - Cloud database
 - **Mongoose** - ODM for MongoDB
+- **Faker.js** - Test data generation
 - **CORS** - Cross-origin resource sharing
-- **dotenv** - Environment variable management
 
-### Frontend
-- **React** - UI library
-- **Vite** - Build tool
-- **React Router** - Client-side routing
-- **Axios** - HTTP client
-- **React Context API** - State management
-- **Tailwind CSS** - Styling
+## 📦 Installation
+
+### Prerequisites
+- Node.js (v18 or higher)
+- MongoDB Atlas account
+- Git
+
+### Clone Repository
+```bash
+git clone https://github.com/ramashishyadav108/Assignment-CartManger.git
+cd Assignment-CartManger
+```
+
+### Backend Setup
+```bash
+cd backend
+npm install
+```
+
+Create `.env` file in backend directory:
+```env
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+NODE_ENV=development
+```
+
+Seed the database with sample products:
+```bash
+npm run seed
+```
+
+Start backend server:
+```bash
+npm run dev
+```
+
+### Frontend Setup
+```bash
+cd frontend
+npm install
+```
+
+Create `.env` file in frontend directory (optional):
+```env
+VITE_API_URL=http://localhost:5000
+```
+
+Start frontend development server:
+```bash
+npm run dev
+```
+
+## 🎯 Usage
+
+1. **Browse Products** - View all products on the home page
+2. **Search & Filter** - Use search bar and category filters
+3. **Add to Wishlist** - Click the heart icon (❤️) to save favorites
+4. **Quick View** - Click eye icon (👁️) or product image for details
+5. **Add to Cart** - Select quantity and click "Add to Cart"
+6. **Manage Cart** - Update quantities or remove items
+7. **Checkout** - Review order and complete purchase
+
+## 📸 Screenshots
+
+### Product Page
+- Grid layout with product cards
+- Star ratings and stock indicators
+- Wishlist and quick view buttons
+
+### Cart Page
+- Full-width layout with item list
+- Quantity controls and pricing
+- Order summary sidebar
+
+### Wishlist Page
+- Saved products grid
+- Move to cart functionality
+- Quick view integration
+
+## 🎨 Color Scheme
+
+- **Primary Red**: `#E23744` (Zomato Red)
+- **Dark Red**: `#CB202D` (Hover States)
+- **Success Green**: `#23CB75`
+- **Star Gold**: `#FFB800`
+- **Text Dark**: `#1C1C1C`
+- **Background**: `#FFFFFF`
+- **Borders**: `#E8E8E8`
 
 ## 📁 Project Structure
 
 ```
-mock-ecom-cart/
-├── README.md
-├── package.json
-├── .gitignore
-│
+Assignment-CartManger/
 ├── backend/
-│   ├── package.json
-│   ├── server.js
-│   ├── .env.example
 │   ├── config/
 │   │   └── db.js
-│   ├── models/
-│   │   ├── Product.js
-│   │   └── Cart.js
-│   ├── routes/
-│   │   ├── productRoutes.js
-│   │   ├── cartRoutes.js
-│   │   └── checkoutRoutes.js
 │   ├── controllers/
-│   │   ├── productController.js
 │   │   ├── cartController.js
-│   │   └── checkoutController.js
+│   │   ├── checkoutController.js
+│   │   └── productController.js
 │   ├── middleware/
-│   │   ├── errorHandler.js
-│   │   └── asyncHandler.js
-│   └── utils/
-│       ├── sampleData.js
-│       └── seedProducts.js
+│   │   ├── asyncHandler.js
+│   │   └── errorHandler.js
+│   ├── models/
+│   │   ├── Cart.js
+│   │   └── Product.js
+│   ├── routes/
+│   │   ├── cartRoutes.js
+│   │   ├── checkoutRoutes.js
+│   │   └── productRoutes.js
+│   ├── utils/
+│   │   ├── generateProducts.js
+│   │   ├── sampleData.js
+│   │   └── seedProducts.js
+│   ├── .env
+│   ├── package.json
+│   └── server.js
 │
-└── frontend/
-    ├── package.json
-    ├── vite.config.js
-    ├── .env.example
-    └── src/
-        ├── main.jsx
-        ├── App.jsx
-        ├── index.css
-        ├── App.css
-        ├── components/
-        │   ├── Navbar.jsx
-        │   ├── ProductCard.jsx
-        │   ├── CartItem.jsx
-        │   ├── ReceiptModal.jsx
-        │   └── Loader.jsx
-        ├── pages/
-        │   ├── ProductsPage.jsx
-        │   ├── CartPage.jsx
-        │   └── CheckoutPage.jsx
-        ├── context/
-        │   └── CartContext.jsx
-        ├── services/
-        │   ├── api.js
-        │   ├── productService.js
-        │   ├── cartService.js
-        │   └── checkoutService.js
-        └── styles/
-            ├── components.css
-            └── layout.css
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── assets/
+│   │   ├── components/
+│   │   │   ├── CartItem.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── Loader.jsx
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── ProductCard.jsx
+│   │   │   ├── ProductQuickView.jsx
+│   │   │   ├── ReceiptModal.jsx
+│   │   │   ├── StarRating.jsx
+│   │   │   └── Toast.jsx
+│   │   ├── context/
+│   │   │   ├── CartContext.jsx
+│   │   │   ├── ToastContext.jsx
+│   │   │   └── WishlistContext.jsx
+│   │   ├── pages/
+│   │   │   ├── AddProductPage.jsx
+│   │   │   ├── CartPage.jsx
+│   │   │   ├── CheckoutPage.jsx
+│   │   │   ├── ProductsPage.jsx
+│   │   │   └── WishlistPage.jsx
+│   │   ├── services/
+│   │   │   ├── api.js
+│   │   │   ├── cartService.js
+│   │   │   ├── checkoutService.js
+│   │   │   └── productService.js
+│   │   ├── styles/
+│   │   │   ├── AddProduct.css
+│   │   │   ├── components.css
+│   │   │   ├── enhanced-ui.css
+│   │   │   └── layout.css
+│   │   ├── App.css
+│   │   ├── App.jsx
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── .env
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+│
+├── .gitignore
+├── package.json
+└── README.md
 ```
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- **Node.js** (v16 or higher)
-- **MongoDB** (local installation or MongoDB Atlas account)
-- **npm** or **yarn**
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd mock-ecom-cart
-   ```
-
-2. **Install all dependencies**
-   ```bash
-   npm run install-all
-   ```
-   
-   Or install manually:
-   ```bash
-   # Install root dependencies
-   npm install
-   
-   # Install backend dependencies
-   cd backend
-   npm install
-   
-   # Install frontend dependencies
-   cd ../frontend
-   npm install
-   ```
-
-3. **Setup Backend Environment Variables**
-   
-   Create a `.env` file in the `backend` directory:
-   ```bash
-   cd backend
-   cp .env.example .env
-   ```
-   
-   Update the `.env` file with your MongoDB connection string:
-   ```env
-   NODE_ENV=development
-   PORT=5000
-   MONGO_URI=mongodb://localhost:27017/mock-ecom-cart
-   # For MongoDB Atlas:
-   # MONGO_URI=mongodb+srv://<username>:<password>@<cluster>.mongodb.net/mock-ecom-cart
-   ```
-
-4. **Setup Frontend Environment Variables**
-   
-   Create a `.env` file in the `frontend` directory:
-   ```bash
-   cd frontend
-   cp .env.example .env
-   ```
-   
-   The default configuration should work:
-   ```env
-   VITE_API_BASE_URL=http://localhost:5000/api
-   ```
-
-5. **Seed the Database**
-   
-   Populate the database with sample products:
-   ```bash
-   cd backend
-   npm run seed
-   ```
-
-### Running the Application
-
-#### Option 1: Run Both Frontend and Backend Together
-
-From the root directory:
-```bash
-npm run dev
-```
-
-This will start:
-- Backend server on `http://localhost:5000`
-- Frontend development server on `http://localhost:5173`
-
-#### Option 2: Run Separately
-
-**Terminal 1 - Backend:**
-```bash
-cd backend
-npm run dev
-```
-
-**Terminal 2 - Frontend:**
-```bash
-cd frontend
-npm run dev
-```
-
-### Access the Application
-
-Open your browser and navigate to:
-- **Frontend:** http://localhost:5173
-- **Backend API:** http://localhost:5000
 
 ## 🔌 API Endpoints
 
 ### Products
 - `GET /api/products` - Get all products
-- `GET /api/products/:id` - Get product by ID
+- `GET /api/products/:id` - Get single product
 - `POST /api/products` - Create new product
-- `PUT /api/products/:id` - Update product
-- `DELETE /api/products/:id` - Delete product
 
 ### Cart
 - `GET /api/cart` - Get cart items
 - `POST /api/cart` - Add item to cart
-- `PUT /api/cart/:itemId` - Update cart item quantity
-- `DELETE /api/cart/:itemId` - Remove item from cart
+- `PUT /api/cart/:id` - Update cart item quantity
+- `DELETE /api/cart/:id` - Remove item from cart
 - `DELETE /api/cart` - Clear entire cart
 
 ### Checkout
 - `POST /api/checkout` - Process checkout
-- `GET /api/checkout/:orderId` - Get order details
 
-## 📝 API Usage Examples
+## 🌟 Key Features Explained
 
-### Add Item to Cart
-```javascript
-POST /api/cart
-Content-Type: application/json
+### Toast Notification System
+- Success, error, warning, and info types
+- Auto-dismiss after 3 seconds
+- Smooth slide-in/fade-out animations
+- Stacked notifications support
 
-{
-  "productId": 1,
-  "quantity": 2,
-  "sessionId": "default-session"
-}
-```
+### Wishlist Management
+- LocalStorage persistence
+- Heart icon on product cards
+- Badge counter in navbar
+- Move to cart functionality
+- Quick view integration
 
-### Process Checkout
-```javascript
-POST /api/checkout
-Content-Type: application/json
+### Product Quick View
+- Modal with full product details
+- Add to cart from modal
+- Wishlist toggle
+- Stock status display
+- Smooth animations
 
-{
-  "customerName": "John Doe",
-  "customerEmail": "john@example.com",
-  "sessionId": "default-session"
-}
-```
+## 🤝 Contributing
 
-## ✨ Features
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-### Backend Features
-- ✅ RESTful API architecture
-- ✅ MongoDB data persistence
-- ✅ Input validation and error handling
-- ✅ Modular route organization
-- ✅ Async error handling
-- ✅ CORS enabled
-- ✅ Sample data seeding
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### Frontend Features
-- ✅ Responsive design (mobile-friendly)
-- ✅ Product browsing with search and filters
-- ✅ Shopping cart management
-- ✅ Real-time cart updates
-- ✅ Mock checkout process
-- ✅ Order receipt modal
-- ✅ Loading states and error handling
-- ✅ Global state management with Context API
+## 📝 License
 
-## 🎨 UI Features
+This project is licensed under the MIT License.
 
-- Modern gradient design
-- Responsive grid layout for products
-- Category filters
-- Search functionality
-- Cart badge showing item count
-- Quantity selectors
-- Real-time price calculations
-- Receipt modal with order summary
+## 👨‍💻 Author
 
-## 🔄 State Management
-
-The application uses **React Context API** for global state management:
-- `CartContext` - Manages cart state and operations
-- Provides cart operations to all components
-- Automatic cart synchronization with backend
-
-## 🛡️ Error Handling
-
-### Backend
-- Centralized error handler middleware
-- Mongoose validation errors
-- Custom error messages
-- Proper HTTP status codes
-
-### Frontend
-- Try-catch blocks for async operations
-- User-friendly error messages
-- Loading states for better UX
-- Axios interceptors for global error handling
-
-## 📦 Database Schema
-
-### Product Schema
-```javascript
-{
-  productId: Number,
-  name: String,
-  price: Number,
-  description: String,
-  image: String,
-  category: String,
-  stock: Number,
-  timestamps: true
-}
-```
-
-### Cart Schema
-```javascript
-{
-  sessionId: String,
-  items: [{
-    product: ObjectId,
-    productId: Number,
-    name: String,
-    price: Number,
-    image: String,
-    quantity: Number
-  }],
-  totalPrice: Number,
-  totalItems: Number,
-  timestamps: true
-}
-```
-
-## 🧪 Testing the Application
-
-1. **Browse Products** - Visit the homepage to see all products
-2. **Search Products** - Use the search bar to find specific items
-3. **Filter by Category** - Click category buttons to filter products
-4. **Add to Cart** - Select quantity and click "Add to Cart"
-5. **View Cart** - Click cart icon in navbar to view cart
-6. **Update Quantity** - Use +/- buttons to change quantities
-7. **Remove Items** - Click trash icon to remove items
-8. **Checkout** - Fill in name and email, then submit
-9. **View Receipt** - See order confirmation modal
-
-## 🚧 Future Enhancements (Optional)
-
-- User authentication and authorization
-- User profiles and order history
-- Real payment gateway integration
-- Product reviews and ratings
-- Wishlist functionality
-- Admin dashboard for product management
-- Email notifications
-- Advanced search and filtering
-- Product recommendations
-
-## 📄 License
-
-This project is created for educational purposes as part of a coding assignment.
-
-## 👤 Author
-
-Your Name - [Your Email]
+**Ramashish Yadav**
+- GitHub: [@ramashishyadav108](https://github.com/ramashishyadav108)
+- LinkedIn: [ramashish108](https://www.linkedin.com/in/ramashish108/)
+- Email: ray09112004@gmail.com
 
 ## 🙏 Acknowledgments
 
-- Sample product data from [Fake Store API](https://fakestoreapi.com/)
-- Product images from various sources
-- Built with MERN stack
-
----
+- Design inspiration from Zomato
+- Icons and emojis for better UX
+- Unsplash for product images
+- Faker.js for test data
 
 ## 📞 Support
 
-If you encounter any issues or have questions:
-1. Check the console for error messages
-2. Ensure MongoDB is running
-3. Verify environment variables are set correctly
-4. Make sure all dependencies are installed
+For support, email ray09112004@gmail.com or create an issue in the repository.
 
-**Happy Coding! 🎉**
+---

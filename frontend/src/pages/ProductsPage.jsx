@@ -4,10 +4,9 @@ import ProductCard from '../components/ProductCard';
 import Loader from '../components/Loader';
 import { getAllProducts } from '../services/productService';
 import '../styles/layout.css';
-import '../styles/enhanced-ui.css';
 
 /**
- * Products Page
+ * Products Page - Zomato Style
  * Displays all available products in a grid layout
  */
 const ProductsPage = () => {
@@ -78,14 +77,38 @@ const ProductsPage = () => {
     <div className="page-container">
       <div className="page-header">
         <div>
-          <h1 className="gradient-text-primary">Our Products</h1>
-          <p className="gradient-text-secondary">Browse our amazing collection of products</p>
+          <h1>Our Products</h1>
+          <p>Browse our amazing collection of products</p>
         </div>
         <button 
           onClick={() => navigate('/add-product')}
-          className="btn btn-primary neon-btn neon-btn-success"
+          className="btn-add-product"
+          style={{
+            background: '#E23744',
+            color: 'white',
+            border: 'none',
+            padding: '0.625rem 1.25rem',
+            borderRadius: '8px',
+            fontSize: '0.9375rem',
+            fontWeight: '600',
+            cursor: 'pointer',
+            transition: 'all 0.2s',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '6px'
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.background = '#CB202D';
+            e.target.style.transform = 'translateY(-1px)';
+            e.target.style.boxShadow = '0 4px 12px rgba(226, 55, 68, 0.3)';
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.background = '#E23744';
+            e.target.style.transform = 'translateY(0)';
+            e.target.style.boxShadow = 'none';
+          }}
         >
-          <span style={{ fontSize: '20px' }}>+</span> Add New Product
+          <span style={{ fontSize: '16px' }}>+</span> ADD NEW PRODUCT
         </button>
       </div>
 
@@ -118,7 +141,7 @@ const ProductsPage = () => {
 
       {/* Products Grid */}
       {filteredProducts.length === 0 ? (
-        <div className="no-products glassmorphism">
+        <div className="no-products">
           <p>No products found matching your criteria.</p>
         </div>
       ) : (

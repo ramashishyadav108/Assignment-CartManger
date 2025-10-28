@@ -10,39 +10,43 @@
 }
 
 :root {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Okra', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  /* Color Palette - Sky Blue Theme */
-  --primary-gradient: linear-gradient(135deg, #56CCF2 0%, #2F80ED 100%);
-  --secondary-gradient: linear-gradient(135deg, #A8EDEA 0%, #FED6E3 100%);
-  --success-gradient: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-  --accent-gradient: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
-  --warm-gradient: linear-gradient(135deg, #FFD89B 0%, #19547B 100%);
-  --cool-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  /* Zomato Color Palette */
+  --zomato-red: #E23744;
+  --zomato-dark-red: #CB202D;
+  --zomato-light-red: #FF7E8B;
+  --primary-gradient: linear-gradient(135deg, #E23744 0%, #CB202D 100%);
+  --secondary-gradient: linear-gradient(135deg, #FF7E8B 0%, #E23744 100%);
+  --success-gradient: linear-gradient(135deg, #23CB75 0%, #1FAC60 100%);
+  --accent-gradient: linear-gradient(135deg, #E23744 0%, #FF4E5E 100%);
+  --warm-gradient: linear-gradient(135deg, #FFD89B 0%, #E23744 100%);
+  --cool-gradient: linear-gradient(135deg, #363636 0%, #1C1C1C 100%);
   
-  --primary-color: #2F80ED;
-  --secondary-color: #56CCF2;
-  --accent-color: #ee0979;
-  --warning-color: #ff6a00;
-  --success-color: #38ef7d;
+  --primary-color: #E23744;
+  --secondary-color: #FF7E8B;
+  --accent-color: #CB202D;
+  --warning-color: #FFB200;
+  --success-color: #23CB75;
   
-  --text-dark: #1a202c;
-  --text-light: #4a5568;
-  --bg-light: #EDF2F7;
-  --bg-white: #ffffff;
-  --border-color: #cbd5e0;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
-  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+  --text-dark: #1C1C1C;
+  --text-light: #696969;
+  --text-gray: #9C9C9C;
+  --bg-light: #F8F8F8;
+  --bg-white: #FFFFFF;
+  --border-color: #E8E8E8;
+  --shadow-sm: 0 1px 3px rgba(28, 28, 28, 0.1);
+  --shadow-md: 0 2px 8px rgba(28, 28, 28, 0.08);
+  --shadow-lg: 0 4px 16px rgba(28, 28, 28, 0.12);
+  --shadow-xl: 0 8px 24px rgba(28, 28, 28, 0.15);
 
   color-scheme: light;
   color: var(--text-dark);
-  background: linear-gradient(135deg, #EBF8FF 0%, #E6FFFA 100%);
+  background: #FFFFFF;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -66,12 +70,12 @@ h6 {
 
 a {
   font-weight: 500;
-  color: #667eea;
+  color: #E23744;
   text-decoration: inherit;
 }
 
 a:hover {
-  color: #5568d3;
+  color: #CB202D;
 }
 
 button {
@@ -93,24 +97,24 @@ input[type='number']::-webkit-outer-spin-button {
 
 input[type='number'] {
   -moz-appearance: textfield;
+  appearance: textfield;
 }
 
-/* Scrollbar styles */
+/* Scrollbar styles - Zomato style */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #F8F8F8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #E23744;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #CB202D;
 }
-

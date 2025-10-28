@@ -1,5 +1,5 @@
 /**
- * Add Product Page Styles
+ * Add Product Page Styles - Zomato Theme
  * Professional form styling for adding new products
  */
 
@@ -14,9 +14,10 @@
 .add-product-form-card {
   background: white;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(28, 28, 28, 0.08);
+  padding: 2.5rem;
   animation: fadeIn 0.3s ease-in;
+  border: 1px solid #E8E8E8;
 }
 
 @keyframes fadeIn {
@@ -34,17 +35,18 @@
 .add-product-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #1f2937;
+  color: #1C1C1C;
   margin-bottom: 1.5rem;
   text-align: center;
 }
 
 /* Alert Messages */
 .alert {
-  padding: 1rem;
+  padding: 1rem 1.25rem;
   border-radius: 8px;
   margin-bottom: 1.5rem;
   animation: slideDown 0.3s ease-out;
+  border-left: 4px solid;
 }
 
 @keyframes slideDown {
@@ -59,15 +61,15 @@
 }
 
 .alert-error {
-  background-color: #fee2e2;
-  border: 1px solid #ef4444;
-  color: #dc2626;
+  background-color: #FEF2F2;
+  border-color: #E23744;
+  color: #CB202D;
 }
 
 .alert-success {
-  background-color: #d1fae5;
-  border: 1px solid #10b981;
-  color: #059669;
+  background-color: #F0FDF4;
+  border-color: #23CB75;
+  color: #1FAC60;
 }
 
 .alert-title {
@@ -95,14 +97,14 @@
 /* Form Label */
 .form-label {
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.9375rem;
   font-weight: 600;
-  color: #374151;
+  color: #1C1C1C;
   margin-bottom: 0.5rem;
 }
 
 .form-label .required {
-  color: #ef4444;
+  color: #E23744;
   margin-left: 0.25rem;
 }
 
@@ -111,32 +113,33 @@
 .form-textarea,
 .form-select {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.875rem 1rem;
   font-size: 1rem;
-  border: 2px solid #e5e7eb;
+  border: 1px solid #E8E8E8;
   border-radius: 8px;
   background-color: #fff;
   transition: all 0.2s ease;
   font-family: inherit;
+  color: #1C1C1C;
 }
 
 .form-input:focus,
 .form-textarea:focus,
 .form-select:focus {
   outline: none;
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: #E23744;
+  box-shadow: 0 0 0 3px rgba(226, 55, 68, 0.1);
 }
 
 .form-input:hover,
 .form-textarea:hover,
 .form-select:hover {
-  border-color: #9ca3af;
+  border-color: #9C9C9C;
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: #9ca3af;
+  color: #9C9C9C;
 }
 
 /* Textarea Specific */
@@ -150,7 +153,7 @@
 .form-select {
   cursor: pointer;
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23E23744'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
   background-size: 1.25rem;
@@ -161,7 +164,7 @@
 .form-helper-text {
   margin-top: 0.375rem;
   font-size: 0.875rem;
-  color: #6b7280;
+  color: #696969;
 }
 
 /* Form Actions */
@@ -173,7 +176,7 @@
 
 /* Buttons */
 .btn {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 1.5rem;
   font-size: 1rem;
   font-weight: 600;
   border: none;
@@ -184,18 +187,20 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  background: #E23744;
   color: white;
   flex: 1;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  background: #CB202D;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  box-shadow: 0 4px 12px rgba(226, 55, 68, 0.3);
 }
 
 .btn-primary:active {
@@ -203,18 +208,18 @@
 }
 
 .btn-secondary {
-  background-color: #f3f4f6;
-  color: #374151;
-  border: 2px solid #e5e7eb;
+  background-color: #F8F8F8;
+  color: #1C1C1C;
+  border: 1px solid #E8E8E8;
 }
 
 .btn-secondary:hover {
-  background-color: #e5e7eb;
-  border-color: #d1d5db;
+  background-color: #E8E8E8;
+  border-color: #9C9C9C;
 }
 
 .btn:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
   transform: none !important;
 }
