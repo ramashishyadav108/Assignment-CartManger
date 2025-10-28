@@ -1,0 +1,27 @@
+{
+  "name": "mock-ecom-cart",
+  "version": "1.0.0",
+  "description": "MERN stack shopping cart application - Coding assignment",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install",
+    "backend": "cd backend && npm run dev",
+    "frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "seed": "cd backend && npm run seed"
+  },
+  "keywords": [
+    "mern",
+    "ecommerce",
+    "shopping-cart",
+    "react",
+    "node",
+    "express",
+    "mongodb"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

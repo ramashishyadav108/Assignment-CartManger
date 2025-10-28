@@ -1,0 +1,705 @@
+/**
+ * Enhanced UI Styles with Gradients and Modern Effects
+ * Beautiful color combinations and card designs
+ */
+
+/* Import Google Fonts for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ============================================
+   ENHANCED PRODUCT GRID
+   ============================================ */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   GLASSMORPHISM EFFECTS
+   ============================================ */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.2);
+}
+
+/* ============================================
+   ANIMATED GRADIENTS - Sky Blue Theme
+   ============================================ */
+
+.animated-gradient-bg {
+  background: linear-gradient(-45deg, #56CCF2, #2F80ED, #A8EDEA, #38ef7d);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* ============================================
+   FLOATING PARTICLES BACKGROUND
+   ============================================ */
+
+.particles-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.particles-bg::before,
+.particles-bg::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: float 20s ease-in-out infinite;
+}
+
+.particles-bg::before {
+  top: 10%;
+  left: 10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #667eea 0%, transparent 70%);
+  animation-delay: 0s;
+}
+
+.particles-bg::after {
+  bottom: 10%;
+  right: 10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #764ba2 0%, transparent 70%);
+  animation-delay: 3s;
+}
+
+/* ============================================
+   CARD HOVER EFFECTS
+   ============================================ */
+
+.card-3d-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.card-3d-hover:hover {
+  transform: perspective(1000px) rotateY(5deg) translateZ(20px);
+}
+
+/* ============================================
+   SHIMMER EFFECT
+   ============================================ */
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: 100%;
+  }
+}
+
+/* ============================================
+   NEON GLOW BUTTONS - Sky Blue Theme
+   ============================================ */
+
+.neon-btn {
+  position: relative;
+  padding: 15px 40px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #56CCF2 0%, #2F80ED 100%);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 0 20px rgba(86, 204, 242, 0.5),
+    0 0 40px rgba(47, 128, 237, 0.3),
+    inset 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.neon-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.neon-btn:hover::before {
+  left: 100%;
+}
+
+.neon-btn:hover {
+  box-shadow: 
+    0 0 30px rgba(86, 204, 242, 0.8),
+    0 0 60px rgba(47, 128, 237, 0.5),
+    inset 0 0 15px rgba(255, 255, 255, 0.3);
+  transform: translateY(-3px);
+}
+
+.neon-btn:active {
+  transform: translateY(0);
+  box-shadow: 
+    0 0 15px rgba(86, 204, 242, 0.4),
+    0 0 30px rgba(47, 128, 237, 0.2);
+}
+
+/* ============================================
+   RIPPLE EFFECT
+   ============================================ */
+
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.ripple:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* ============================================
+   GRADIENT TEXT - Sky Blue Theme
+   ============================================ */
+
+.gradient-text-primary {
+  background: linear-gradient(135deg, #2F80ED 0%, #56CCF2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+.gradient-text-secondary {
+  background: linear-gradient(135deg, #A8EDEA 0%, #56CCF2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+.gradient-text-warm {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+.gradient-text-cool {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+.gradient-text-nature {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+.gradient-text-success {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.gradient-text-accent {
+  background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* ============================================
+   ENHANCED SHADOWS - Sky Blue Theme
+   ============================================ */
+
+.shadow-colorful-sm {
+  box-shadow: 
+    0 4px 15px rgba(47, 128, 237, 0.2),
+    0 2px 8px rgba(86, 204, 242, 0.1);
+}
+
+.shadow-colorful-md {
+  box-shadow: 
+    0 8px 25px rgba(47, 128, 237, 0.25),
+    0 4px 12px rgba(86, 204, 242, 0.15);
+}
+
+.shadow-colorful-lg {
+  box-shadow: 
+    0 15px 40px rgba(47, 128, 237, 0.3),
+    0 8px 20px rgba(86, 204, 242, 0.2);
+}
+
+.shadow-colorful-xl {
+  box-shadow: 
+    0 25px 60px rgba(47, 128, 237, 0.35),
+    0 12px 30px rgba(86, 204, 242, 0.25);
+}
+
+/* ============================================
+   ANIMATED BORDERS - Sky Blue Theme
+   ============================================ */
+
+.animated-border {
+  position: relative;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+.animated-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  margin: -3px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #56CCF2, #2F80ED, #A8EDEA, #56CCF2);
+  background-size: 300% 300%;
+  animation: borderGradient 3s ease infinite;
+}
+
+@keyframes borderGradient {
+  0% {background-position: 0% 50%;}
+  50% {background-position: 100% 50%;}
+  100% {background-position: 0% 50%;}
+}
+
+/* ============================================
+   TOOLTIP STYLES
+   ============================================ */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  padding: 8px 12px;
+  background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.tooltip:hover::after {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
+
+/* ============================================
+   PROGRESS BARS
+   ============================================ */
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+/* ============================================
+   FLOATING LABELS
+   ============================================ */
+
+.floating-label {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.floating-label input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.floating-label input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.floating-label label {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #718096;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: white;
+  padding: 0 4px;
+}
+
+.floating-label input:focus ~ label,
+.floating-label input:not(:placeholder-shown) ~ label {
+  top: 0;
+  font-size: 0.75rem;
+  color: #667eea;
+  font-weight: 600;
+}
+
+/* ============================================
+   SKELETON LOADING
+   ============================================ */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 25%,
+    #e0e0e0 50%,
+    #f0f0f0 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: 8px;
+}
+
+@keyframes skeleton-loading {
+  0% {background-position: 200% 0;}
+  100% {background-position: -200% 0;}
+}
+
+/* ============================================
+   PARALLAX SCROLL EFFECT
+   ============================================ */
+
+.parallax {
+  transform: translateZ(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   CONFETTI ANIMATION
+   ============================================ */
+
+@keyframes confetti-fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+  }
+}
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: #667eea;
+  animation: confetti-fall 3s linear;
+  opacity: 0;
+}
+
+/* ============================================
+   SMOOTH TRANSITIONS
+   ============================================ */
+
+.smooth-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.smooth-transition-slow {
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+
+@media (max-width: 768px) {
+  .products-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* ============================================
+   BUTTON VARIANTS - Sky Blue Theme
+   ============================================ */
+
+.neon-btn-primary {
+  background: linear-gradient(135deg, #2F80ED 0%, #56CCF2 100%);
+  box-shadow: 
+    0 0 20px rgba(47, 128, 237, 0.5),
+    0 0 40px rgba(86, 204, 242, 0.3);
+}
+
+.neon-btn-primary:hover {
+  box-shadow: 
+    0 0 30px rgba(47, 128, 237, 0.8),
+    0 0 60px rgba(86, 204, 242, 0.5);
+}
+
+.neon-btn-success {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  box-shadow: 
+    0 0 20px rgba(17, 153, 142, 0.5),
+    0 0 40px rgba(56, 239, 125, 0.3);
+}
+
+.neon-btn-success:hover {
+  box-shadow: 
+    0 0 30px rgba(17, 153, 142, 0.8),
+    0 0 60px rgba(56, 239, 125, 0.5);
+}
+
+.neon-btn-danger {
+  background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+  box-shadow: 
+    0 0 20px rgba(238, 9, 121, 0.5),
+    0 0 40px rgba(255, 106, 0, 0.3);
+}
+
+.neon-btn-danger:hover {
+  box-shadow: 
+    0 0 30px rgba(238, 9, 121, 0.8),
+    0 0 60px rgba(255, 106, 0, 0.5);
+}
+
+.neon-btn-accent {
+  background: linear-gradient(135deg, #A8EDEA 0%, #FED6E3 100%);
+  box-shadow: 
+    0 0 20px rgba(168, 237, 234, 0.5),
+    0 0 40px rgba(254, 214, 227, 0.3);
+}
+
+.neon-btn-accent:hover {
+  box-shadow: 
+    0 0 30px rgba(168, 237, 234, 0.8),
+    0 0 60px rgba(254, 214, 227, 0.5);
+}
+
+.neon-btn-ghost {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.neon-btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 
+    0 0 25px rgba(255, 255, 255, 0.4);
+}
+
+/* ============================================
+   BADGE VARIANTS - Sky Blue Theme
+   ============================================ */
+
+.badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.badge-primary {
+  background: linear-gradient(135deg, #2F80ED 0%, #56CCF2 100%);
+  color: white;
+}
+
+.badge-success {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+  color: white;
+}
+
+.badge-danger {
+  background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%);
+  color: white;
+}
+
+.badge-warning {
+  background: linear-gradient(135deg, #FFD89B 0%, #19547B 100%);
+  color: white;
+}
+
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+
+.glow-primary {
+  box-shadow: 0 0 20px rgba(47, 128, 237, 0.6);
+}
+
+.glow-success {
+  box-shadow: 0 0 20px rgba(56, 239, 125, 0.6);
+}
+
+.glow-danger {
+  box-shadow: 0 0 20px rgba(238, 9, 121, 0.6);
+}
+
+/* ============================================
+   GLASSMORPHISM
+   ============================================ */
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(47, 128, 237, 0.2);
+}
+
+.animated-border-wrapper {
+  position: relative;
+}
+
+/* ============================================
+   GRADIENT BACKGROUNDS
+   ============================================ */
+
+.gradient-bg-primary {
+  background: linear-gradient(135deg, #2F80ED 0%, #56CCF2 100%);
+}
+
+.gradient-bg-animated {
+  background: linear-gradient(-45deg, #56CCF2, #2F80ED, #A8EDEA, #38ef7d);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+.floating-input {
+  padding: 12px 16px;
+  border: 2px solid rgba(47, 128, 237, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.floating-input:focus {
+  outline: none;
+  border-color: #2F80ED;
+  box-shadow: 0 0 0 3px rgba(47, 128, 237, 0.1);
+}
