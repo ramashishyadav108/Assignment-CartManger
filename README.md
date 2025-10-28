@@ -146,15 +146,6 @@ For detailed deployment instructions, see [DEPLOYMENT.md](DEPLOYMENT.md)
 - Move to cart functionality
 - Quick view integration
 
-## 🎨 Color Scheme
-
-- **Primary Red**: `#E23744` (Zomato Red)
-- **Dark Red**: `#CB202D` (Hover States)
-- **Success Green**: `#23CB75`
-- **Star Gold**: `#FFB800`
-- **Text Dark**: `#1C1C1C`
-- **Background**: `#FFFFFF`
-- **Borders**: `#E8E8E8`
 
 ## 📁 Project Structure
 
