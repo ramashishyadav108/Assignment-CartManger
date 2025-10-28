@@ -20,26 +20,10 @@ const app = express();
  * Middleware Configuration
  */
 
-// CORS Configuration - Allow frontend origins
-const allowedOrigins = [
-  'http://localhost:5173',
-  'http://localhost:5174',
-  'https://assignment-cart-manger-pqii-c4mxjfw4e.vercel.app', // Production frontend URL
-  process.env.CLIENT_URL,
-].filter(Boolean);
-
+// CORS Configuration - Allow all origins
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps, Postman, or curl)
-    if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
+  origin: '*', // Allow all origins
+  credentials: false, // Must be false when origin is '*'
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
