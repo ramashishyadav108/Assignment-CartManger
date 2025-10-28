@@ -1,17 +1,11 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import path from 'path';
-import { fileURLToPath } from 'url';
 import connectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/errorHandler.js';
 import productRoutes from './routes/productRoutes.js';
 import cartRoutes from './routes/cartRoutes.js';
 import checkoutRoutes from './routes/checkoutRoutes.js';
-
-// ES module __dirname alternative
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 // Load environment variables from .env file
 dotenv.config();
@@ -31,8 +25,7 @@ const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:5174',
   process.env.CLIENT_URL, // Add your production frontend URL in .env
-  // Add your Vercel frontend URL here after deployment
-  // Example: 'https://your-app.vercel.app'
+  // You will add your Vercel frontend URL here after deployment
 ].filter(Boolean);
 
 app.use(cors({
@@ -73,31 +66,21 @@ app.use('/api/cart', cartRoutes);
 app.use('/api/checkout', checkoutRoutes);
 
 /**
- * Serve Frontend in Production
+ * Root Endpoint - API Info
  */
-if (process.env.NODE_ENV === 'production') {
-  // Serve static files from frontend build
-  app.use(express.static(path.join(__dirname, '../frontend/dist')));
-
-  // Serve index.html for any other routes (SPA support)
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Welcome to ShopMart API',
+    version: '1.0.0',
+    environment: process.env.NODE_ENV || 'development',
+    status: 'running',
+    endpoints: {
+      products: '/api/products',
+      cart: '/api/cart',
+      checkout: '/api/checkout',
+    },
   });
-} else {
-  // Development mode - API info endpoint
-  app.get('/', (req, res) => {
-    res.json({
-      message: 'Welcome to ShopMart API',
-      version: '1.0.0',
-      environment: 'development',
-      endpoints: {
-        products: '/api/products',
-        cart: '/api/cart',
-        checkout: '/api/checkout',
-      },
-    });
-  });
-}
+});
 
 /**
  * Error Handling Middleware
