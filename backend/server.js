@@ -21,12 +21,13 @@ const app = express();
  */
 
 // CORS Configuration - Allow all origins
-app.use(cors({
-  origin: '*', // Allow all origins
-  credentials: false, // Must be false when origin is '*'
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+// app.use(cors({
+//   origin: '*', // Allow all origins
+//   credentials: false, // Must be false when origin is '*'
+//   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//   allowedHeaders: ['Content-Type', 'Authorization']
+// }));
+app.use(cors());
 
 // Parse JSON request bodies
 app.use(express.json());
