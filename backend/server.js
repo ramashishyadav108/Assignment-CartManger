@@ -24,8 +24,8 @@ const app = express();
 const allowedOrigins = [
   'http://localhost:5173',
   'http://localhost:5174',
-  process.env.CLIENT_URL, // Add your production frontend URL in .env
-  // You will add your Vercel frontend URL here after deployment
+  'https://assignment-cart-manger-pqii-c4mxjfw4e.vercel.app', // Production frontend URL
+  process.env.CLIENT_URL,
 ].filter(Boolean);
 
 app.use(cors({
