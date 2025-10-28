@@ -1,0 +1,33 @@
+{
+  "name": "mock-ecom-cart-backend",
+  "version": "1.0.0",
+  "description": "Backend for Mock E-Com Cart - Shopping cart application",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "seed": "node utils/seedProducts.js"
+  },
+  "keywords": [
+    "ecommerce",
+    "cart",
+    "express",
+    "mongodb",
+    "rest-api"
+  ],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^10.1.0",
+    "axios": "^1.6.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "mongoose": "^8.0.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
