@@ -26,8 +26,30 @@ const app = express();
  * Middleware Configuration
  */
 
-// Enable CORS for cross-origin requests (frontend on different port)
-app.use(cors());
+// CORS Configuration - Allow frontend origins
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://localhost:5174',
+  process.env.CLIENT_URL, // Add your production frontend URL in .env
+  // Add your Vercel frontend URL here after deployment
+  // Example: 'https://your-app.vercel.app'
+].filter(Boolean);
+
+app.use(cors({
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps, Postman, or curl)
+    if (!origin) return callback(null, true);
+    
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 // Parse JSON request bodies
 app.use(express.json());
